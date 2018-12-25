@@ -23,7 +23,7 @@ async def transcode(request):
         output_dir = transcode_dir + os.sep + transcode_id
         os.mkdir(output_dir)
 
-        transcode_job = transcoder.transcode(url, output_dir, "stream.m3u8")
+        transcode_job = transcoder.get_transcode_job(output_dir, "stream.m3u8", url)
         transcode_job.start()
 
         transcode_jobs[transcode_id] = transcode_job
